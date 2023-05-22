@@ -1,0 +1,206 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+ul[class],
+ol[class] {
+    padding: 0;
+}
+
+body,
+h1, h2, h3, h4,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+    margin: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    min-height: 100vl;
+    scroll-behavior: smooth;
+    text-rendering: optimizeSpeed;
+    line-height: 1.5;
+}
+
+ul[class],
+ol[class] {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+.container {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.header {
+    height: 100px;
+    margin-bottom: 30px;
+    background-color: #1bb9e5;
+    display: flex;
+    align-items: center;
+}
+
+.nav {
+    display: flex;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 24px;
+}
+
+.nav__link {
+    margin-right: 30px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #fff;
+    transition: all linear 0.3s;
+}
+
+.nav__link:hover{
+    opacity: 0.7;
+}
+
+.nav__link:last-child {
+    margin-right: 0;
+}
+
+.btn {
+    width: 50px;
+    height: 50px;
+    font-size: 40px;
+    border-radius: 5px;
+    border: 1px solid #fff;
+    color: #fff;
+    background-color: #1bb9e5;
+    margin: 15px 0;
+}
+
+.btn:hover {
+    border: 1px solid #ccc;
+    opacity: 0.7;
+}
+
+.addExercise {
+    display: block;
+}
+
+.exercise_input {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #fff;
+    border: 1px solid #bdbbdb;
+    border-radius: 3px;  
+}
+.exercise_input::placeholder {
+    color: #212529;
+    opacity: 0.4;
+}
+.exercise_input:focus {
+    color: #212529;
+    background-color: #fff;
+    border-color: #1bb9e5;
+    outline: 0;
+    box-shadow: 0 0 1.5px;
+}
+
+.exercise_input_error {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #fff;
+    border: 2px solid #ff0000;
+    border-radius: 3px;
+}
+
+.labelInput {
+    display: block;
+    margin: 5px 0;
+    color: #ff0000;
+}
+
+.exercise_item {
+    margin: 5px 0;
+    font-size: 18px;
+}
+
+.btnAdd {
+    padding: 6px 12px;
+    margin-left: 10px;
+    font-size: 19px;
+    color: #fff;
+    background-color: #39f559;
+    border: 1px solid #fff;
+    border-radius: 3px;
+}
+
+.btnAdd:hover {
+    opacity: 0.9;
+    border: 1px solid #ccc;
+}
+
+.btnAdd:disabled {
+    opacity: 0.3;
+}
+
+.deleteBtn {
+    padding: 6px 12px;
+    margin-left: 10px;
+    font-size: 15px;
+    color: #fff;
+    background-color: #f95b3f;
+    border: 1px solid #fff;
+    border-radius: 3px;
+}
+
+.deleteBtn:hover {
+    opacity: 0.9;
+    border: 1px solid #ccc;
+}
+
+.changeBtn {
+    padding: 5px 10px;
+    margin-left: 10px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #45fff0;
+    border: 1px solid #fff;
+    border-radius: 3px;
+}
+
+.changeBtn:hover {
+    opacity: 0.9;
+    border: 1px solid #ccc;
+}
+
+.changeBtnAdd {
+    padding: 6px 12px;
+    margin-left: 10px;
+    font-size: 19px;
+    color: #fff;
+    background-color: #39f559;
+    border: 1px solid #fff;
+    border-radius: 3px;
+}
+
+.changeBtnAdd:hover {
+    opacity: 0.9;
+    border: 1px solid #ccc;
+}
