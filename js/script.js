@@ -70,6 +70,7 @@ const addExercise = () => {
     changeBtn.addEventListener('click', function () {
         deleteBtn.remove();
         changeBtn.remove();
+        button.style.visibility = 'hidden';
         li.replaceWith(input);
         input.focus();
 
@@ -86,6 +87,7 @@ const addExercise = () => {
             changeBtnAdd.remove();
             li.append(deleteBtn);
             li.append(changeBtn);
+            button.style.visibility = 'visible';
         })
     })
 }
