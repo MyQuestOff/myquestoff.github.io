@@ -84,6 +84,8 @@ const addExercise = () => {
             input.replaceWith(li);
             li.innerText = changeInput;
             changeBtnAdd.remove();
+            li.append(deleteBtn);
+            li.append(changeBtn);
         })
     })
 }
