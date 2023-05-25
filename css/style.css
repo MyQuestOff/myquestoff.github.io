@@ -130,6 +130,10 @@ img {
     border-radius: 3px;
 }
 
+.exercise_input_error:focus {
+    border-color: #f95b3f;
+}
+
 .labelInput {
     display: block;
     margin: 5px 0;
@@ -203,4 +207,8 @@ img {
 .changeBtnAdd:hover {
     opacity: 0.9;
     border: 1px solid #ccc;
+}
+
+.changeBtnAdd:disabled {
+    opacity: 0.3;
 }

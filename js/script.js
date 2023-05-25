@@ -18,25 +18,48 @@ const addExercise = () => {
     input.placeholder = 'Название упражнения';
     exercises_list.append(input);
     input.focus();
+
+    let labelInput = document.createElement('label');
+    labelInput.className = 'labelInput';
+    labelInput.innerText = '';
+    input.addEventListener("input", function() {
+        for(let i = 0; i < exercises_list.childElementCount; i++) {
+                if(input.value === exercises_list.children[i].innerText) {
+                    input.className = 'exercise_input_error';
+                    labelInput.innerText = 'Введите другое название';
+                    btnAdd.after(labelInput);
+                    btnAdd.disabled = true;
+                    return;
+                }
+                else if(input.value === '') {
+                    input.className = 'exercise_input_error';
+                    labelInput.innerText = 'Поле не должно быть пустым';
+                    btnAdd.after(labelInput);
+                    btnAdd.disabled = true;
+                    return;
+                }
+                else {
+                    input.className = 'exercise_input';
+                    labelInput.remove();
+                    btnAdd.disabled = false;
+                }
+        }
+    })
+
     btnAdd.type = 'button';
     btnAdd.className = 'btnAdd';
     btnAdd.value = '\u2714';
     exercises_list.append(btnAdd);
 
-    // let labelInput = document.createElement('label');
-    // labelInput.className = 'labelInput';
-    // labelInput.innerText = 'Введите другое название';
-    // input.addEventListener("input", function() {
-    //     for(let i = 0; i < exercises_list.childElementCount; i++) {
-    //             if(input.value === exercises_list.children[i].innerText) {
-    //                 input.className = 'exercise_input_error';
-    //                 btnAdd.after(labelInput);
-    //                 btnAdd.disabled = true;
-    //             }
-    //     }
-    // })
-
     btnAdd.addEventListener('click', function(){
+
+        if(input.value === '') {
+            input.className = 'exercise_input_error';
+            labelInput.innerText = 'Поле не должно быть пустым';
+            btnAdd.after(labelInput);
+            btnAdd.disabled = true;
+            return;
+        }
 
         let inputInner = input.value;
         input.blur();
@@ -78,6 +101,30 @@ const addExercise = () => {
         changeBtnAdd.type = 'button';
         changeBtnAdd.className = 'changeBtnAdd';
         changeBtnAdd.value = '\u2714';
+
+        input.addEventListener("input", function() {
+            for(let i = 0; i < exercises_list.childElementCount; i++) {
+                if(input.value === exercises_list.children[i].innerText) {
+                    input.className = 'exercise_input_error';
+                    labelInput.innerText = 'Введите другое название';
+                    changeBtnAdd.after(labelInput);
+                    changeBtnAdd.disabled = true;
+                    return;
+                }
+                else if(input.value === '') {
+                    input.className = 'exercise_input_error';
+                    labelInput.innerText = 'Поле не должно быть пустым';
+                    changeBtnAdd.after(labelInput);
+                    changeBtnAdd.disabled = true;
+                    return;
+                }
+                else {
+                    input.className = 'exercise_input';
+                    labelInput.remove();
+                    changeBtnAdd.disabled = false;
+                }
+            }
+        })
 
         input.after(changeBtnAdd);
         changeBtnAdd.addEventListener('click', function () {
