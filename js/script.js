@@ -1,7 +1,7 @@
 let button = document.querySelector('.btn');
 let exercises_list = document.querySelector('.exercises_list');
 let id = 0;
-let arrData = [];
+let arrData = []; 
 
 for (let i = 0; i < localStorage.length; i++) {
     let key = localStorage.key(i);
