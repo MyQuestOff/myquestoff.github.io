@@ -1,7 +1,53 @@
 let button = document.querySelector('.btn');
 let exercises_list = document.querySelector('.exercises_list');
 let id = 0;
-let arrData = []; 
+let arrData = [];
+
+let btn_start = document.querySelector('.btn_start');
+let btn_stop = document.querySelector('.btn_stop');
+let btn_reset = document.querySelector('.btn_reset');
+let time = document.querySelector('.time');
+let h = 0;
+let m = 0;
+let s = 0;
+let t;
+
+let tick = () => {
+    s++;
+    if(s >= 60){
+        s = 0;
+        m++;
+        if(m >= 60) {
+            m = 0;
+            h++;
+        }
+    }
+}
+
+let addTimer = () => {
+    tick();
+    time.textContent = (h > 9 ? h : "0" + h) 
+    + ":" + (m > 9 ? m : "0" + m)
+    + ":" + (s > 9 ? s : "0" + s);
+    timer();
+}
+
+let timer = () => {
+    t = setTimeout(addTimer, 1000);
+}
+
+time.textContent = "00:00:00";
+
+btn_start.onclick = timer;
+btn_stop.onclick = function(){
+    clearTimeout(t);
+}
+btn_reset.onclick = function(){
+    time.textContent = "00:00:00";
+    s = 0;
+    m = 0;
+    h = 0;
+}
 
 for (let i = 0; i < localStorage.length; i++) {
     let key = localStorage.key(i);
@@ -17,7 +63,7 @@ for (let i = 0; i < localStorage.length; i++) {
     deleteBtn.type = 'button';
     deleteBtn.value = "\u2716";
     li.append(deleteBtn);
-    
+
     deleteBtn.addEventListener('click', function () {
         deleteBtn.remove();
         li.remove();
@@ -51,16 +97,16 @@ for (let i = 0; i < localStorage.length; i++) {
         changeBtnAdd.className = 'changeBtnAdd';
         changeBtnAdd.value = '\u2714';
 
-        input.addEventListener("input", function() {
-            for(let i = 0; i < exercises_list.childElementCount; i++) {
-                if(input.value === exercises_list.children[i].innerText) {
+        input.addEventListener("input", function () {
+            for (let i = 0; i < exercises_list.childElementCount; i++) {
+                if (input.value === exercises_list.children[i].innerText) {
                     input.className = 'exercise_input_error';
                     labelInput.innerText = 'Введите другое название';
                     changeBtnAdd.after(labelInput);
                     changeBtnAdd.disabled = true;
                     return;
                 }
-                else if(input.value === '') {
+                else if (input.value === '') {
                     input.className = 'exercise_input_error';
                     labelInput.innerText = 'Поле не должно быть пустым';
                     changeBtnAdd.after(labelInput);
@@ -84,7 +130,7 @@ for (let i = 0; i < localStorage.length; i++) {
             li.append(deleteBtn);
             li.append(changeBtn);
             button.style.visibility = 'visible';
-            let obj = {id:key, value:li.innerText};
+            let obj = { id: key, value: li.innerText };
             localStorage.setItem(key, JSON.stringify(obj));
         })
     })
@@ -98,15 +144,15 @@ const addExercise = () => {
     let btnAdd = document.createElement('input');
 
     let checkInput = () => {
-        for(let i = 0; i < exercises_list.childElementCount; i++) {
-            if(input.value === exercises_list.children[i].innerText) {
+        for (let i = 0; i < exercises_list.childElementCount; i++) {
+            if (input.value === exercises_list.children[i].innerText) {
                 input.className = 'exercise_input_error';
                 labelInput.innerText = 'Введите другое название';
                 btnAdd.after(labelInput);
                 btnAdd.disabled = true;
                 return;
             }
-            else if(input.value === '') {
+            else if (input.value === '') {
                 input.className = 'exercise_input_error';
                 labelInput.innerText = 'Поле не должно быть пустым';
                 btnAdd.after(labelInput);
@@ -139,9 +185,9 @@ const addExercise = () => {
     btnAdd.value = '\u2714';
     exercises_list.append(btnAdd);
 
-    btnAdd.addEventListener('click', function(){
+    btnAdd.addEventListener('click', function () {
 
-        if(input.value === '') {
+        if (input.value === '') {
             input.className = 'exercise_input_error';
             labelInput.innerText = 'Поле не должно быть пустым';
             btnAdd.after(labelInput);
@@ -157,7 +203,7 @@ const addExercise = () => {
 
         li.innerHTML = inputInner;
         exercises_list.append(li);
-        
+
         deleteBtn.className = 'deleteBtn';
         deleteBtn.type = 'button';
         deleteBtn.value = "\u2716";
@@ -170,7 +216,7 @@ const addExercise = () => {
 
         button.style.visibility = 'visible';
         id = Math.floor(Math.random() * Math.pow(10, 9));
-        let obj = {id:id, value:li.innerText};
+        let obj = { id: id, value: li.innerText };
         localStorage.setItem(id, JSON.stringify(obj));
     });
 
@@ -191,16 +237,16 @@ const addExercise = () => {
         changeBtnAdd.className = 'changeBtnAdd';
         changeBtnAdd.value = '\u2714';
 
-        input.addEventListener("input", function() {
-            for(let i = 0; i < exercises_list.childElementCount; i++) {
-                if(input.value === exercises_list.children[i].innerText) {
+        input.addEventListener("input", function () {
+            for (let i = 0; i < exercises_list.childElementCount; i++) {
+                if (input.value === exercises_list.children[i].innerText) {
                     input.className = 'exercise_input_error';
                     labelInput.innerText = 'Введите другое название';
                     changeBtnAdd.after(labelInput);
                     changeBtnAdd.disabled = true;
                     return;
                 }
-                else if(input.value === '') {
+                else if (input.value === '') {
                     input.className = 'exercise_input_error';
                     labelInput.innerText = 'Поле не должно быть пустым';
                     changeBtnAdd.after(labelInput);

@@ -56,6 +56,14 @@ img {
     align-items: center;
 }
 
+.main {
+    margin-top: 30px;
+}
+
+.wrapper {
+    display: flex;
+}
+
 .nav {
     display: flex;
     justify-content: center;
@@ -211,4 +219,8 @@ img {
 
 .changeBtnAdd:disabled {
     opacity: 0.3;
+}
+
+.main__timer {
+    margin-left: 100px;
 }

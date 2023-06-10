@@ -8,21 +8,29 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <header class="header">
+    <!-- <header class="header">
         <div class="container">
             <nav class="nav">
                 <a href="#main__training" class="nav__link">Тренировки</a>
                 <a href="#main__timer" class="nav__link">Секундомер</a>
             </nav>
         </div>
-    </header>
+    </header> -->
     <main class="main">
         <div class="container">
+            <div class="wrapper">
+                <div class="main__training" id="main__training">
+                    <ol class="exercises_list">
+                    </ol>
+                    <button class="btn">+</button>
+                </div>
 
-            <div class="main__training" id="main__training">
-                <ol class="exercises_list">
-                </ol>
-                <button class="btn">+</button>
+                <div class="main__timer" id="main__timer">
+                    <h1><time class="time"></time></h1>
+                    <input class="btn_start" type="button" value="start">
+                    <input class="btn_stop" type="button" value="stop">
+                    <input class="btn_reset" type="button" value="reset">
+                </div>
             </div>
         </div>
     </main>
